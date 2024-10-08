@@ -1,31 +1,72 @@
-import java.util.Scanner;
-class Array{
+public class Array {
+    
+void bublesort(int arr[])
+{
+    for(int i=0;i<arr.length;i++)
+    {
+        for(int j=0;j<arr.length-1;j ++)
+        {
+            if(arr[j]>arr[j+1])
+            {
+                int temp;
+                temp=arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=temp;
 
-    public static void main(String[] args) {
-Scanner sc=new Scanner(System.in);
-int marks[]= new int[100];
-
-System.out.println("PLease Enter your Physics Marks");
-marks[0]=sc.nextInt();
-System.out.println("PLease ENter your Chemistry marks");
-marks[1]=sc.nextInt();
-System.out.println("PLese Enter Your Maths MArks");
-marks[2]=sc.nextInt();
-
-System.out.println("Physics :   "+marks[0]);
-System.out.println("Chemistry  :"+marks[1]);
-System.out.println("PF         :"+marks[2]);
-  
-System.out.println("Enter YOur age");
-int a;
-a=sc.nextInt();
-System.out.println("Your age is"+a);
+            }
+        }
+    }
+}
 
 
-System.out.println(marks.length);
-
-
-
+void selectionsort(int arr[])
+{
+    for(int i=0;i<arr.length;i++)
+    {
+        int min=i;
+        for(int j=i+1;j<arr.length;j++)
+        {
+            if(arr[j]<arr[min])
+            {
+                min=j;
+            }
+        }
+        int temp;
+        temp=arr[min];
+        arr[min]=arr[i];
+        arr[i]=temp;
     }
 
+}
+
+
+void insertionsort(int arr[])
+{
+    for(int i=1;i<arr.length;i++)
+    {
+        int temp=arr[i];
+        int j=i-1;
+        while(j>=0 && arr[j]>temp)
+        {
+            arr[j+1]=arr[j];
+            j--;
+        }
+        arr[j+1]=temp;
+    }
+}
+
+public static void main(String[] args) {
+    int arr[]={3,7,2,0};
+
+    Array a=new Array();
+    a.insertionsort(arr);
+   
+    for(int i=0;i<arr.length;i++)
+    {
+        System.out.println(arr[i]);
+    }
+
+
+
+}
 }

@@ -1,26 +1,34 @@
-public class Main {
-    public static void main(String[] args) {
-        
-        int[] arr = {1, 2, 3, 4, 5};
-        int temp;
-        System.out.println("origional array");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+// Generic class
+class GenericClass<T> {
+
+    // Method to print array elements
+    public void printArray(T[] array) {
+        for (T element : array) {
+            System.out.println(element);
         }
-for (int i = 0; i < arr.length; i++) 
-{  
-        for(int j = i + 1; j < arr.length; j++)
-        
-{
-    if(arr[i] < arr[j])
-    {
-        temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
     }
 }
+
+public class Main {
+    public static void main(String[] args) {
+        // Create arrays
+        Integer[] intArray = {1, 2, 3, 4};
+        Double[] doubleArray = {1.1, 2.2, 3.3, 4.4};
+        String[] stringArray = {"Hello", "World"};
+
+        // Create GenericClass objects
+        GenericClass<Integer> intGeneric = new GenericClass<>();
+        GenericClass<Double> doubleGeneric = new GenericClass<>();
+        GenericClass<String> stringGeneric = new GenericClass<>();
+
+        // Print arrays using generic class
+        System.out.println("Print Integers:");
+        intGeneric.printArray(intArray);
+
+        System.out.println("\nPrint Doubles:");
+        doubleGeneric.printArray(doubleArray);
+
+        System.out.println("\nPrint Strings:");
+        stringGeneric.printArray(stringArray);
+    }
 }
-        System.out.println("reverse array");
-        for (int i = 0; i < arr.length; i++) {
-          System.out.println(arr[i] + " ");
-        }}}
